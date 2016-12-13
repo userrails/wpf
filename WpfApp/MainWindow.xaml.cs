@@ -101,5 +101,19 @@ namespace WpfApp
         {
             Application.Current.Shutdown();
         }
+
+        // ListViewItem_DoubleClick
+        private void ListViewItem_DoubleClick(object sender, RoutedEventArgs e)
+        {
+            if (lvCus.SelectedItems.Count > 0)
+            {
+                System.Data.DataRowView cusObj = (System.Data.DataRowView)lvCus.SelectedItems[0];
+                var myobj = cusObj.Row.ItemArray;
+                txtfn.Text = myobj[1].ToString();
+                txtln.Text = myobj[2].ToString();
+                txtdob.Text = myobj[3].ToString();
+                txtage.Text = myobj[4].ToString();
+            }
+        }
     }
 }

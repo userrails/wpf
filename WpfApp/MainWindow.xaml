@@ -18,7 +18,7 @@
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Cancel"/>
             <Button Content="Exit" HorizontalAlignment="Left" Margin="376,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Exit"/>
         </Grid>
-        <ListView Margin="534,233,10,18" Name="lvCus">
+        <ListView Margin="534,233,10,18" Name="lvCus" MouseDoubleClick="ListViewItem_DoubleClick">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="TbCus">
                     <GridViewColumn Header="CusID" Width="40" DisplayMemberBinding="{Binding Path=CusID}" />
