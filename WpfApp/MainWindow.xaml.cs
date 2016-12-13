@@ -26,6 +26,22 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            GetAllData();
+        }
+
+        public void GetAllData()
+        {
+            string ConString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+            string CmdString = string.Empty;
+            using (SqlConnection con = new SqlConnection(ConString))
+            {
+                CmdString = "SELECT * FROM TbCus";
+                SqlCommand cmd = new SqlCommand(CmdString, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable("Gov");
+                da.Fill(dt);
+                dgridGov.ItemsSource = dt.DefaultView;
+            }
         }
     }
 }
