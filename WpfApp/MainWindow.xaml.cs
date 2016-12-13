@@ -50,6 +50,7 @@ namespace WpfApp
                     finally
                     {
                         GetAllData();
+                        ClearAll();
                         con.Close();
                     }
                 }
@@ -69,6 +70,7 @@ namespace WpfApp
                     DataTable dt = new DataTable("Gov");
                     da.Fill(dt);
                     dgridGov.ItemsSource = dt.DefaultView;
+                    lvCus.ItemsSource = dt.DefaultView;
                 }
                 catch (Exception ex)
                 {

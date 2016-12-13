@@ -17,10 +17,11 @@
             <Button Content="Update" HorizontalAlignment="Left" Margin="175,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Update"/>
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="336,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Cancel"/>
         </Grid>
-        <ListView Margin="534,233,10,18">
+        <ListView Margin="534,233,10,18" Name="lvCus">
             <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Firstname" Width="120" DisplayMemberBinding="{Binding Path=fn}" />
+                <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="TbCus">
+                    <GridViewColumn Header="CusID" Width="40" DisplayMemberBinding="{Binding Path=CusID}" />
+                    <GridViewColumn Header="fn" Width="120" DisplayMemberBinding="{Binding Path=fn}" />
                     <GridViewColumn Header="Lastname" Width="120" DisplayMemberBinding="{Binding Path=ln}" />
                     <GridViewColumn Header="Dob" Width="100" DisplayMemberBinding="{Binding Path=dob}" />
                     <GridViewColumn Header="Age" Width="60" DisplayMemberBinding="{Binding Path=age}" />
