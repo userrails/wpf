@@ -15,6 +15,5 @@
             <TextBox x:Name="txtage" HorizontalAlignment="Left" Height="54" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" RenderTransformOrigin="1.12,0.658"/>
             <Button Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="470" Height="37" Click="Button_Save"/>
         </Grid>
-
     </Grid>
 </Window>
