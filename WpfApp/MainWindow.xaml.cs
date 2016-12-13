@@ -31,18 +31,28 @@ namespace WpfApp
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-            string ConString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
-            string CmdString = String.Empty;
-            using (SqlConnection con = new SqlConnection(ConString))
-            {
-                con.Open();
-                CmdString = "INSERT INTO TbCus (fn, ln, dob, age) VALUES ('" + txtfn.Text + "', '" + txtln.Text + "', '" + txtdob.Text + "'," + txtage.Text + ")";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("This record has been saved successfully!");
-                GetAllData();
-                con.Close();
-            }
+                string ConString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+                string CmdString = String.Empty;
+                using (SqlConnection con = new SqlConnection(ConString))
+                {
+                    try
+                    {
+                        con.Open();
+                        CmdString = "INSERT INTO TbCus (fn, ln, dob, age) VALUES ('" + txtfn.Text + "', '" + txtln.Text + "', '" + txtdob.Text + "'," + txtage.Text + ")";
+                        SqlCommand cmd = new SqlCommand(CmdString, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("This record has been saved successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        GetAllData();
+                        con.Close();
+                    }
+                }
         }
 
         public void GetAllData()
@@ -51,12 +61,19 @@ namespace WpfApp
             string CmdString = string.Empty;
             using (SqlConnection con = new SqlConnection(ConString))
             {
-                CmdString = "SELECT * FROM TbCus";
-                SqlCommand cmd = new SqlCommand(CmdString, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable("Gov");
-                da.Fill(dt);
-                dgridGov.ItemsSource = dt.DefaultView;
+                try
+                {
+                    CmdString = "SELECT * FROM TbCus";
+                    SqlCommand cmd = new SqlCommand(CmdString, con);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable("Gov");
+                    da.Fill(dt);
+                    dgridGov.ItemsSource = dt.DefaultView;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }
