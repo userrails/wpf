@@ -76,5 +76,23 @@ namespace WpfApp
                 }
             }
         }
+
+        private void Button_Cancel(object sender, RoutedEventArgs e)
+        {
+            ClearAll();
+        }
+
+        public void ClearAll()
+        {
+            txtfn.Text = "";
+            txtln.Text = "";
+            txtdob.Text = "";
+            txtage.Text = "";
+        }
+
+        private void Button_Update(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
