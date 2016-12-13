@@ -96,5 +96,10 @@ namespace WpfApp
         {
 
         }
+
+        private void Button_Exit(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

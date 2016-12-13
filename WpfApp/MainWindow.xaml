@@ -13,9 +13,10 @@
             <TextBox x:Name="txtdob" HorizontalAlignment="Left" Height="50" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470"/>
             <Label Content="Age" HorizontalAlignment="Left" Margin="8,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.255,-1.175"/>
             <TextBox x:Name="txtage" HorizontalAlignment="Left" Height="54" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" RenderTransformOrigin="1.12,0.658"/>
-            <Button Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Save"/>
-            <Button Content="Update" HorizontalAlignment="Left" Margin="175,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Update"/>
-            <Button Content="Cancel" HorizontalAlignment="Left" Margin="336,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Cancel"/>
+            <Button Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="Button_Save"/>
+            <Button Content="Update" HorizontalAlignment="Left" Margin="134,361,0,0" VerticalAlignment="Top" Width="89" Height="37" Click="Button_Update"/>
+            <Button Content="Cancel" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Cancel"/>
+            <Button Content="Exit" HorizontalAlignment="Left" Margin="376,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Exit"/>
         </Grid>
         <ListView Margin="534,233,10,18" Name="lvCus">
             <ListView.View>
