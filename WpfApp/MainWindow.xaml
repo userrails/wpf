@@ -2,8 +2,8 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="611.686" Width="1235.462">
-    <Grid Background="#FFE6C4C4" Margin="17,10,86,124">
-        <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,29,0,0" VerticalAlignment="Top" Height="400" Width="541"/>
+    <Grid Background="#FFE6C4C4" Margin="17,10,49,124">
+        <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,29,0,0" VerticalAlignment="Top" Height="172" Width="541"/>
         <Grid HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="529">
             <Label Content="Fristname" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Height="34" Width="81"/>
             <TextBox x:Name="txtfn" HorizontalAlignment="Left" Height="47" Margin="12,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
@@ -17,5 +17,15 @@
             <Button Content="Update" HorizontalAlignment="Left" Margin="175,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Update"/>
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="336,361,0,0" VerticalAlignment="Top" Width="144" Height="37" Click="Button_Cancel"/>
         </Grid>
+        <ListView Margin="534,233,10,18">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Firstname" Width="120" DisplayMemberBinding="{Binding Path=fn}" />
+                    <GridViewColumn Header="Lastname" Width="120" DisplayMemberBinding="{Binding Path=ln}" />
+                    <GridViewColumn Header="Dob" Width="100" DisplayMemberBinding="{Binding Path=dob}" />
+                    <GridViewColumn Header="Age" Width="60" DisplayMemberBinding="{Binding Path=age}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
