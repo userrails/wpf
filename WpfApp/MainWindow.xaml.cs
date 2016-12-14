@@ -29,6 +29,7 @@ namespace WpfApp
             GetAllData();
         }
 
+        // Save feature
         private void Button_Save(object sender, RoutedEventArgs e)
         {
                 string ConString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
@@ -62,7 +63,10 @@ namespace WpfApp
                     }
                 }
         }
+        // Save feature
 
+
+        // Display all the data to ListView
         public void GetAllData()
         {
             string ConString = System.Configuration.ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
@@ -85,12 +89,18 @@ namespace WpfApp
                 }
             }
         }
+        // Display all the data to ListView
 
+
+        // Button Cancel
         private void Button_Cancel(object sender, RoutedEventArgs e)
         {
             ClearAll();
         }
+        // Button Cancel
 
+
+        //Clear all Text
         public void ClearAll()
         {
             txtCusID.Text = "";
@@ -99,7 +109,11 @@ namespace WpfApp
             txtdob.Text = "";
             txtage.Text = "";
         }
+        //Clear all Text
 
+
+
+        // Button Update
         private void Button_Update(object sender, RoutedEventArgs e)
         {
             string conString = System.Configuration.ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
@@ -137,11 +151,16 @@ namespace WpfApp
                 }
             }
         }
+        // Button Update
 
+
+        // Button Exit
         private void Button_Exit(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
+        // Button Exit
+
 
         // ListViewItem_DoubleClick
         private void ListViewItem_DoubleClick(object sender, RoutedEventArgs e)
@@ -154,7 +173,10 @@ namespace WpfApp
            txtdob.Text = myobj[3].ToString();
            txtage.Text = myobj[4].ToString();
         }
+        // ListViewItem_DoubleClick
 
+
+        // Check if all required fields are blank
         private bool RequiredFieldIsBlank()
         {
             if (txtfn.Text=="" && txtfn.Text=="" && txtln.Text=="" && txtdob.Text=="" && txtage.Text=="")
@@ -163,7 +185,10 @@ namespace WpfApp
             }
             return false;
         }
+        // Check if all required fields are blank
 
+
+        // Delete Feature
         private void ButtonDeleteClick(object sender, RoutedEventArgs e)
         {
             string conString = System.Configuration.ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
@@ -199,6 +224,23 @@ namespace WpfApp
                 }
             }
         }
+        // Delete Feature
+
+
+
+        // Search on listview when Search button is clicked
+        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                string searchText = txtSearch.Text.ToLower();
+                foreach (ListViewItem item in lvCus.Items)
+                {
+                    Console.WriteLine(item);  
+                }
+            }
+        }
+        // Search on listview when Search button is clicked
         
     }
 }
