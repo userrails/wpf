@@ -4,7 +4,7 @@
         Title="MainWindow" Height="611.686" Width="1235.462">
     <Grid Background="#FFE6C4C4" Margin="17,10,2,124">
         <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,10,0,0" VerticalAlignment="Top" Height="100" Width="541"/>
-        <Grid HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="529">
+        <Grid HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="534">
             <Label Content="Fristname" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Height="34" Width="81"/>
             <TextBox x:Name="txtfn" HorizontalAlignment="Left" Height="47" Margin="12,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
             <Label Content="Lastname" HorizontalAlignment="Left" Margin="7,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.538"/>
@@ -15,14 +15,20 @@
             <Label Content="Age" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.255,-1.175"/>
             <TextBox x:Name="txtage" HorizontalAlignment="Left" Height="54" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" RenderTransformOrigin="1.12,0.658"/>
             
-            <Button Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="Button_Save"/>
-            <Button Content="Update" HorizontalAlignment="Left" Margin="134,361,0,0" VerticalAlignment="Top" Width="89" Height="37" Click="Button_Update"/>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="Button_Save"/>
+            <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="134,361,0,0" VerticalAlignment="Top" Width="89" Height="37" Click="Button_Update"/>
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Cancel"/>
             <Button Content="Exit" HorizontalAlignment="Left" Margin="175,2,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Exit"/>
             <TextBox x:Name="txtCusID" HorizontalAlignment="Left" Height="29" Margin="397,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" IsEnabled="False"/>
             <Label Content="CusID" HorizontalAlignment="Left" Margin="354,7,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="ButtonDelete" Content="Delete" HorizontalAlignment="Left" Margin="377,362,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="ButtonDeleteClick"/>
+            <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="377,362,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="ButtonDeleteClick"/>
+            
+            <TextBlock Margin="7,403,445,0">
+                <Hyperlink NavigateUri="Employee.xaml">Employee</Hyperlink>
+            </TextBlock>
+            <Button x:Name="ButtonEmployee" Content="Employee" HorizontalAlignment="Left" Margin="134,403,0,0" VerticalAlignment="Top" Width="89" Height="34" Click="ButtonEmployee_Click"/>
         </Grid>
+        
         <ListView Margin="534,233,10,18" Name="lvCus" MouseDoubleClick="ListViewItem_DoubleClick">
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="TbCus">

@@ -27,6 +27,8 @@ namespace WpfApp
         {
             InitializeComponent();
             GetAllData();
+            btnUpdate.Visibility = System.Windows.Visibility.Hidden;
+            btnDelete.Visibility = System.Windows.Visibility.Hidden;
         }
 
         // Save feature
@@ -108,6 +110,10 @@ namespace WpfApp
             txtln.Text = "";
             txtdob.Text = "";
             txtage.Text = "";
+
+            btnUpdate.Visibility = System.Windows.Visibility.Hidden;
+            btnDelete.Visibility = System.Windows.Visibility.Hidden;
+            btnSave.Visibility = System.Windows.Visibility.Visible;
         }
         //Clear all Text
 
@@ -172,6 +178,10 @@ namespace WpfApp
            txtln.Text = myobj[2].ToString();
            txtdob.Text = myobj[3].ToString();
            txtage.Text = myobj[4].ToString();
+
+           btnUpdate.Visibility = System.Windows.Visibility.Visible;
+           btnDelete.Visibility = System.Windows.Visibility.Visible;
+           btnSave.Visibility = System.Windows.Visibility.Hidden;
         }
         // ListViewItem_DoubleClick
 
@@ -241,6 +251,11 @@ namespace WpfApp
             }
         }
         // Search on listview when Search button is clicked
-        
+
+        private void ButtonEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Employee emp = new Employee();
+            emp.ShowDialog();
+        }
     }
 }
