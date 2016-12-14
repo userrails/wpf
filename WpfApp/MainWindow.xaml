@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="611.686" Width="1235.462">
     <Grid Background="#FFE6C4C4" Margin="17,10,2,124">
-        <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,29,0,0" VerticalAlignment="Top" Height="172" Width="541"/>
+        <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,10,0,0" VerticalAlignment="Top" Height="100" Width="541"/>
         <Grid HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="529">
             <Label Content="Fristname" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Height="34" Width="81"/>
             <TextBox x:Name="txtfn" HorizontalAlignment="Left" Height="47" Margin="12,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
@@ -34,5 +34,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="btnSearch" HorizontalAlignment="Left" Height="23" Margin="534,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Search by name"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="659,196,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>
