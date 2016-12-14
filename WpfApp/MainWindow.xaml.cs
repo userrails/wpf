@@ -94,7 +94,19 @@ namespace WpfApp
 
         private void Button_Update(object sender, RoutedEventArgs e)
         {
+            string conString = System.Configuration.ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
+            string sqlCmd = String.Empty;
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                try
+                {
 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
 
         private void Button_Exit(object sender, RoutedEventArgs e)
@@ -105,15 +117,12 @@ namespace WpfApp
         // ListViewItem_DoubleClick
         private void ListViewItem_DoubleClick(object sender, RoutedEventArgs e)
         {
-            if (lvCus.SelectedItems.Count > 0)
-            {
-                System.Data.DataRowView cusObj = (System.Data.DataRowView)lvCus.SelectedItems[0];
-                var myobj = cusObj.Row.ItemArray;
+                DataRowView cusObj = (DataRowView)lvCus.SelectedItem;
+                var myobj = cusObj.Row.ItemArray;                
                 txtfn.Text = myobj[1].ToString();
                 txtln.Text = myobj[2].ToString();
                 txtdob.Text = myobj[3].ToString();
                 txtage.Text = myobj[4].ToString();
-            }
         }
     }
 }

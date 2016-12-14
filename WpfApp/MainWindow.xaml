@@ -2,17 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="611.686" Width="1235.462">
-    <Grid Background="#FFE6C4C4" Margin="17,10,49,124">
+    <Grid Background="#FFE6C4C4" Margin="17,10,2,124">
         <DataGrid x:Name="dgridGov" HorizontalAlignment="Left" Margin="534,29,0,0" VerticalAlignment="Top" Height="172" Width="541"/>
         <Grid HorizontalAlignment="Left" Height="429" VerticalAlignment="Top" Width="529">
             <Label Content="Fristname" HorizontalAlignment="Left" Margin="8,10,0,0" VerticalAlignment="Top" Height="34" Width="81"/>
             <TextBox x:Name="txtfn" HorizontalAlignment="Left" Height="47" Margin="12,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="468"/>
             <Label Content="Lastname" HorizontalAlignment="Left" Margin="7,91,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.5,0.538"/>
             <TextBox x:Name="txtln" HorizontalAlignment="Left" Height="51" Margin="10,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470"/>
-            <Label Content="Dob" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.567,1.978" Width="39"/>
-            <TextBox x:Name="txtdob" HorizontalAlignment="Left" Height="50" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470"/>
-            <Label Content="Age" HorizontalAlignment="Left" Margin="8,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.255,-1.175"/>
-            <TextBox x:Name="txtage" HorizontalAlignment="Left" Height="54" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" RenderTransformOrigin="1.12,0.658"/>
+
+            <Label Content="Dob" HorizontalAlignment="Left" Margin="8,173,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.567,1.978" Width="39"/>
+            <TextBox x:Name="txtdob" HorizontalAlignment="Left" Height="50" Margin="10,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470"/>
+            <Label Content="Age" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.255,-1.175"/>
+            <TextBox x:Name="txtage" HorizontalAlignment="Left" Height="54" Margin="10,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" RenderTransformOrigin="1.12,0.658"/>
+            
             <Button Content="Save" HorizontalAlignment="Left" Margin="10,361,0,0" VerticalAlignment="Top" Width="103" Height="37" Click="Button_Save"/>
             <Button Content="Update" HorizontalAlignment="Left" Margin="134,361,0,0" VerticalAlignment="Top" Width="89" Height="37" Click="Button_Update"/>
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Cancel"/>
@@ -22,7 +24,7 @@
             <ListView.View>
                 <GridView AllowsColumnReorder="true" ColumnHeaderToolTip="TbCus">
                     <GridViewColumn Header="CusID" Width="40" DisplayMemberBinding="{Binding Path=CusID}" />
-                    <GridViewColumn Header="fn" Width="120" DisplayMemberBinding="{Binding Path=fn}" />
+                    <GridViewColumn Header="Firstname" Width="120" DisplayMemberBinding="{Binding Path=fn}" />
                     <GridViewColumn Header="Lastname" Width="120" DisplayMemberBinding="{Binding Path=ln}" />
                     <GridViewColumn Header="Dob" Width="100" DisplayMemberBinding="{Binding Path=dob}" />
                     <GridViewColumn Header="Age" Width="60" DisplayMemberBinding="{Binding Path=age}" />
