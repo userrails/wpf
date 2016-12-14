@@ -106,7 +106,7 @@ namespace WpfApp
             string cmdString = String.Empty;
             using (SqlConnection con = new SqlConnection(conString))
             {
-                if (txtCusID.Text == "")
+                if (string.IsNullOrEmpty(txtCusID.Text))
                 {
                     MessageBox.Show("Select record from list first!");
                 }
@@ -172,7 +172,7 @@ namespace WpfApp
             using (SqlConnection con = new SqlConnection(conString))
             {
 
-                if (txtCusID.Text=="" && RequiredFieldIsBlank())
+                if (string.IsNullOrEmpty(txtCusID.Text) && RequiredFieldIsBlank())
                 {
                     MessageBox.Show("Select record from list to Delete!!");
                 }
