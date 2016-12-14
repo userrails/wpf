@@ -19,6 +19,8 @@
             <Button Content="Update" HorizontalAlignment="Left" Margin="134,361,0,0" VerticalAlignment="Top" Width="89" Height="37" Click="Button_Update"/>
             <Button Content="Cancel" HorizontalAlignment="Left" Margin="243,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Cancel"/>
             <Button Content="Exit" HorizontalAlignment="Left" Margin="376,361,0,0" VerticalAlignment="Top" Width="104" Height="37" Click="Button_Exit"/>
+            <TextBox x:Name="txtCusID" HorizontalAlignment="Left" Height="29" Margin="397,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" IsEnabled="False"/>
+            <Label Content="CusID" HorizontalAlignment="Left" Margin="354,7,0,0" VerticalAlignment="Top"/>
         </Grid>
         <ListView Margin="534,233,10,18" Name="lvCus" MouseDoubleClick="ListViewItem_DoubleClick">
             <ListView.View>

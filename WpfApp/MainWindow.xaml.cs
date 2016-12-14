@@ -86,6 +86,7 @@ namespace WpfApp
 
         public void ClearAll()
         {
+            txtCusID.Text = "";
             txtfn.Text = "";
             txtln.Text = "";
             txtdob.Text = "";
@@ -95,16 +96,36 @@ namespace WpfApp
         private void Button_Update(object sender, RoutedEventArgs e)
         {
             string conString = System.Configuration.ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
-            string sqlCmd = String.Empty;
+            string cmdString = String.Empty;
             using (SqlConnection con = new SqlConnection(conString))
             {
-                try
+                if (txtCusID.Text == "")
                 {
-
+                    MessageBox.Show("Select record from list first!");
                 }
-                catch (Exception ex)
+                else if (txtfn.Text=="" && txtln.Text=="" && txtdob.Text=="" && txtage.Text=="")
                 {
-                    MessageBox.Show(ex.ToString());
+                  MessageBox.Show("All Fields are required!");  
+                }
+                else
+                {
+                    try
+                    {
+                        con.Open();
+                        cmdString = "UPDATE TbCus SET fn='" + txtfn.Text + "', ln='" + txtln.Text + "', dob='" + txtdob.Text + "', age=" + txtage.Text + "where CusID=" + txtCusID.Text + ";";
+                        SqlCommand cmd = new SqlCommand(cmdString, con);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        GetAllData();
+                        ClearAll();
+                        con.Close();
+                    }
                 }
             }
         }
@@ -117,12 +138,13 @@ namespace WpfApp
         // ListViewItem_DoubleClick
         private void ListViewItem_DoubleClick(object sender, RoutedEventArgs e)
         {
-                DataRowView cusObj = (DataRowView)lvCus.SelectedItem;
-                var myobj = cusObj.Row.ItemArray;                
-                txtfn.Text = myobj[1].ToString();
-                txtln.Text = myobj[2].ToString();
-                txtdob.Text = myobj[3].ToString();
-                txtage.Text = myobj[4].ToString();
+           System.Data.DataRowView cusObj = (System.Data.DataRowView)lvCus.SelectedItem;
+           var myobj = cusObj.Row.ItemArray;
+           txtCusID.Text = myobj[0].ToString();    
+           txtfn.Text = myobj[1].ToString();
+           txtln.Text = myobj[2].ToString();
+           txtdob.Text = myobj[3].ToString();
+           txtage.Text = myobj[4].ToString();
         }
     }
 }
