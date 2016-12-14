@@ -122,6 +122,7 @@ namespace WpfApp
                         cmdString = "UPDATE TbCus SET fn='" + txtfn.Text + "', ln='" + txtln.Text + "', dob='" + txtdob.Text + "', age=" + txtage.Text + "where CusID=" + txtCusID.Text + ";";
                         SqlCommand cmd = new SqlCommand(cmdString, con);
                         cmd.ExecuteNonQuery();
+                        MessageBox.Show("This record has been updated successfully!");
                     }
                     catch (Exception ex)
                     {
@@ -161,6 +162,42 @@ namespace WpfApp
                 return true;
             }
             return false;
+        }
+
+        private void ButtonDeleteClick(object sender, RoutedEventArgs e)
+        {
+            string conString = System.Configuration.ConfigurationManager.ConnectionStrings["conString"].ConnectionString;
+            string cmdString = String.Empty;
+
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+
+                if (txtCusID.Text=="" && RequiredFieldIsBlank())
+                {
+                    MessageBox.Show("Select record from list to Delete!!");
+                }
+                else
+                {
+                    try
+                    {
+                        con.Open();
+                        cmdString = "DELETE FROM TbCus where CusID=" + txtCusID.Text + ";";
+                        SqlCommand cmd = new SqlCommand(cmdString, con);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("This record has been deleted successfully!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        GetAllData();
+                        ClearAll();
+                        con.Close();
+                    }
+                }
+            }
         } 
     }
 }
