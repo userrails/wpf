@@ -35,23 +35,30 @@ namespace WpfApp
                 string CmdString = String.Empty;
                 using (SqlConnection con = new SqlConnection(ConString))
                 {
-                    try
+                    if (RequiredFieldIsBlank())
                     {
-                        con.Open();
-                        CmdString = "INSERT INTO TbCus (fn, ln, dob, age) VALUES ('" + txtfn.Text + "', '" + txtln.Text + "', '" + txtdob.Text + "'," + txtage.Text + ")";
-                        SqlCommand cmd = new SqlCommand(CmdString, con);
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("This record has been saved successfully!");
+                        MessageBox.Show("All Fields are required!");
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.ToString());
-                    }
-                    finally
-                    {
-                        GetAllData();
-                        ClearAll();
-                        con.Close();
+                        try
+                        {
+                            con.Open();
+                            CmdString = "INSERT INTO TbCus (fn, ln, dob, age) VALUES ('" + txtfn.Text + "', '" + txtln.Text + "', '" + txtdob.Text + "'," + txtage.Text + ")";
+                            SqlCommand cmd = new SqlCommand(CmdString, con);
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("This record has been saved successfully!");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        finally
+                        {
+                            GetAllData();
+                            ClearAll();
+                            con.Close();
+                        }
                     }
                 }
         }
@@ -103,7 +110,7 @@ namespace WpfApp
                 {
                     MessageBox.Show("Select record from list first!");
                 }
-                else if (txtfn.Text=="" && txtln.Text=="" && txtdob.Text=="" && txtage.Text=="")
+                else if (RequiredFieldIsBlank())
                 {
                   MessageBox.Show("All Fields are required!");  
                 }
@@ -146,5 +153,14 @@ namespace WpfApp
            txtdob.Text = myobj[3].ToString();
            txtage.Text = myobj[4].ToString();
         }
+
+        private bool RequiredFieldIsBlank()
+        {
+            if (txtfn.Text=="" && txtfn.Text=="" && txtln.Text=="" && txtdob.Text=="" && txtage.Text=="")
+            {
+                return true;
+            }
+            return false;
+        } 
     }
 }
