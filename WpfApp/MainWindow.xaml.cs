@@ -31,6 +31,9 @@ namespace WpfApp
             btnDelete.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        // set DataTable dt variable globally such that it is used in multiple methods;
+        DataTable dt;
+
         // Save feature
         private void Button_Save(object sender, RoutedEventArgs e)
         {
@@ -80,7 +83,7 @@ namespace WpfApp
                     CmdString = "SELECT * FROM TbCus";
                     SqlCommand cmd = new SqlCommand(CmdString, con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable("Gov");
+                    dt = new DataTable("Gov");
                     da.Fill(dt);
                     dgridGov.ItemsSource = dt.DefaultView;
                     lvCus.ItemsSource = dt.DefaultView;
@@ -240,26 +243,19 @@ namespace WpfApp
         }
         // Delete Feature
 
-
-
-        // Search on listview when Search button is clicked
-        private void ButtonSearch_Click(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtSearch.Text))
-            {
-                string searchText = txtSearch.Text.ToLower();
-                foreach (ListViewItem item in lvCus.Items)
-                {
-                    Console.WriteLine(item);  
-                }
-            }
-        }
-        // Search on listview when Search button is clicked
-
         private void ButtonEmployee_Click(object sender, RoutedEventArgs e)
         {
             Employee emp = new Employee();
             emp.ShowDialog();
         }
+
+        // implement search feature
+        private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DataView DV = new DataView(dt);
+            DV.RowFilter = String.Format("fn LIKE '%{0}%'", txtSearch.Text);
+            lvCus.ItemsSource = DV;
+        }
+        // implement search feature
     }
 }
